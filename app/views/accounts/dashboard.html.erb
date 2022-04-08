@@ -1,0 +1,7 @@
+<p class="h4"><%= t "dashboard.title" %></p>
+
+<% if current_account.admin? %>
+  <%= render "dashboard_admin" %>
+<% else %>
+  <%= render "dashboard_user" %>
+<% end %>

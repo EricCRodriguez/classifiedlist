@@ -1,0 +1,50 @@
+<span class="posted-at-top float-left"><%= t 'post.posted' %> <%= time_ago_in_words @post.created_at %> <%= t 'post.ago' %></span>
+
+<div class="clearfix">
+  <a href="javascript:window.print()" class="btn btn-sm btn-secondary float-right"><%= t 'post.print_button' %></a>
+</div>
+
+<% if @post.address.present? %>
+  <iframe class="float-right mt-3 ml-3" width="320" height="240" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSJbOqi0e2d2eXF7kMSdtSQABy_3S1Pz4&q=<%= @post.address.to_param %>" allowfullscreen></iframe>
+<% end %>
+
+<h2 class="mt-4 mb-4"><%= @post.title %></h2>
+
+<%= simple_format @post.content %>
+
+<% if @post.images.attached? %>
+<div class="clearfix mb-4">
+  <% @post.images.each do |image| %>
+    <%= link_to image_tag(image, width: "200px", class: "img-thumbnail"), url_for(image), target: "_blank" %>
+  <% end %>
+</div>
+<% end %>
+
+<% unless account_signed_in? && @post.account_id == current_account.id %>
+
+  <%= link_to t("post.send_message"), "#", id: "show_contact_form", class: "btn btn-info" %>
+
+  <div id="contact-form" class="bg-light p-3">
+    <div class="row">
+      <div class="col-sm-6">
+        <%= form_tag send_enquiry_path do %>
+          <% user_email = account_signed_in? ? current_account.email : nil %>
+          <%= hidden_field_tag :post_id, @post.id %>
+
+          <div class="form-group">
+            <%= label_tag :email, t('post.email_label') %>
+            <%= text_field_tag :email, user_email, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= label_tag :message, t('post.message_label') %>
+            <%= text_area_tag :message, nil, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= submit_tag t('post.send_message_confirm'), class: "btn btn-success" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

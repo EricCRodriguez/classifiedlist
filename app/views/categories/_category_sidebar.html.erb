@@ -1,0 +1,11 @@
+<div class="d-none d-lg-block">
+  <% if @category.present? %>
+    <p><strong><%= category_name(@category) %></strong></p>
+
+    <ul>
+      <% @category.subcategories.order(category_sort_order).each do |subcategory| %>
+        <li><%= link_to category_name(subcategory), show_category_path(subcategory.url) %></li>
+      <% end %>
+    </ul>
+  <% end %>
+</div>

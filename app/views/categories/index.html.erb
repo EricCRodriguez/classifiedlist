@@ -1,0 +1,32 @@
+<%= link_to "#{t("form.new")} #{t("category.singular")}", new_category_path, class: "btn btn-success float-right" %>
+
+<p class="h4"><%= t("category.plural") %></p>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th width="70%"><%= t("form.name") %></th>
+      <th width="15%"><%= t("form.edit") %></th>
+      <th><%= t("form.destroy") %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @categories.each do |category| %>
+      <tr class="bg-light">
+        <td class="pt-3 pb-3 pl-3"><strong><%= link_to category_name(category), show_category_path(category.url) %></strong></td>
+        <td class="pt-3 pb-3"><%= link_to t("form.edit"), edit_category_path(category.id) %></td>
+        <td class="pt-3 pb-3 pr-3"><%= link_to t("form.destroy"), category, method: :delete, data: { confirm: t("form.confirm") } %></td>
+      </tr>
+
+      <% category.subcategories.order(category_sort_order).each do |subcategory| %>
+        <tr>
+          <td class="pl-3"><%= link_to category_name(subcategory), show_category_path(subcategory.url) %></td>
+          <td><%= link_to t("form.edit"), edit_category_path(subcategory.id) %></td>
+          <td><%= link_to t("form.destroy"), category, method: :delete, data: { confirm: t("form.confirm") } %></td>
+        </tr>
+      <% end %>
+
+    <% end %>
+  </tbody>
+</table>

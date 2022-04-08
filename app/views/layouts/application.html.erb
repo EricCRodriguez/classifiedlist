@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale.to_s %>">
+  <head>
+    <title><%= page_title %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= image_url "favicon/apple-touch-icon.png" %>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= image_url "favicon/favicon-32x32.png" %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= image_url "favicon/favicon-16x16.png" %>">
+    <link rel="manifest" href="<%= image_url "favicon/site.webmanifest" %>">
+  </head>
+
+  <body>
+    <div class="container mb-5">
+      <div class="row">
+        <div class="col-12 col-lg-3">
+          <%= link_to root_path, class: "text-dark" do %>
+            <span class="mt-4 mb-4 h4 d-inline-block"><%= ENV.fetch("APP_NAME") { "Craigslist Clone" } %></span>
+          <% end %>
+
+          <div class="d-block d-lg-none top-right-nav float-right mt-3 pt-2">
+            <% if account_signed_in? %>
+              <%= link_to t("nav.dashboard"), dashboard_path, class: "text-dark d-inline-block mt-2 ml-3" if account_signed_in? && !current_account.is_admin? %>
+              <%= link_to t("nav.logout"), destroy_account_session_path, method: :delete, class: "text-dark d-inline-block mt-2 ml-3" %>
+            <% else %>
+              <%= link_to t("nav.login"), new_account_session_path, class: "text-dark d-inline-block mt-2 ml-3" %>
+              <%= link_to t("nav.register"), new_account_registration_path, class: "text-dark d-inline-block mt-2 ml-3" %>
+            <% end %>
+          </div>
+
+
+          <div class="border-top mb-0 d-block d-lg-none"></div>
+
+          <%= render "accounts/sidebar_admin" if account_signed_in? && current_account.is_admin? %>
+
+          <p><%= link_to "#{t('form.new')} #{t('post.singular')}", new_post_path, class: "btn btn-success d-none d-lg-block mb-4" unless is_auth? || (account_signed_in? && current_account.is_admin?) %></p>
+
+          <%= render "categories/category_sidebar" if entry_type? "categories" %>
+          <%= render "pages/sidebar_list" if is_home? || is_auth? || entry_type?("pages") %>
+        </div>
+
+        <div class="col-12 col-lg-9">
+          <header id="header">
+            <%= render "layouts/breadcrumb_nav" %>
+          </header>
+
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+    <%= flash_notifications %>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<div class="nav-pages d-none d-lg-block">
+  <ul class="list-unstyled">
+    <% @pages.each do |page| %>
+      <li class="mb-2"><%= link_to t("nav.sidebar_pages." + page.slug, default: page.name), page_path(page) %></li>
+    <% end %>
+  </ul>
+</div>

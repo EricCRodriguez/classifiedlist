@@ -1,0 +1,22 @@
+<%= link_to "#{t("form.new")} #{t("page.singular")}", new_page_path, class: "btn btn-success float-right" %>
+
+<p class="h4"><%= t("page.plural") %></p>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th width="70%"><%= t("form.label.name") %></th>
+      <th width="15%"><%= t("form.label.date") %></th>
+      <th><%= t("form.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pages.each do |page| %>
+      <tr>
+        <td><%= link_to page.name, page_path(page) %></td>
+        <td><%= link_to t("form.edit"), edit_page_path(page.id) %></td>
+        <td><%= link_to t("form.destroy"), page, method: :delete, data: { confirm: t("form.confirm") } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

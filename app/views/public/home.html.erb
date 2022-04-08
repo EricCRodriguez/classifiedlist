@@ -1,0 +1,11 @@
+<div class="row">
+<% @categories.each do |category| %>
+  <div class="col-6 col-lg-4 mb-4 category-box">
+    <p class="h6"><strong><%= link_to category_name(category), show_category_path(category.url), class: "text-dark" %></strong></p>
+
+    <% category.subcategories.order(category_sort_order).limit(10).each do |subcategory| %>
+      <div class="subcat"><%= link_to category_name(subcategory), show_category_path(subcategory.url) %></div>
+    <% end %>
+  </div>
+<% end %>
+</div>

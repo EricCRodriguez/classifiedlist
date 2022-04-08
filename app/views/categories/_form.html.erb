@@ -1,0 +1,38 @@
+<%= form_with(model: category, local: true) do |form| %>
+
+  <% if category.errors.any? %>
+    <div id="error_explanation">
+      <strong><%= pluralize(category.errors.count, "error") %></strong>
+
+      <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name, "#{t("form.label.name")} (English)" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :name, "#{t("form.label.name")} (Secondary Language)" %>
+        <%= form.text_field :secondary_name, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parent_id, t("form.label.parent_category") %>
+    <%= form.select :parent_id, Category.where(parent_id: nil).order(name: :asc).collect {|c| [ c.name, c.id ] }, { include_blank: t("form.label.no_parent_category") }, { class: "form-control" } %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag t("form.save"), class: "btn btn-success" %>
+  </div>
+<% end %>

@@ -1,0 +1,64 @@
+<div class="row mt-4">
+  <div class="col-4">
+    <div class="p-3 bg-light">
+      <p class="h5">Total Users</p>
+      <p class="lead"><%= Account.where(admin: false).count %></p>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="p-3 bg-light">
+      <p class="h5">Total Posts</p>
+      <p class="lead"><%= Post.count %></p>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="p-3 bg-light">
+      <p class="h5">Total Pages</p>
+      <p class="lead"><%= Page.count %></p>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <p class="h4">Latest Posts</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="70%">Title</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title, edit_post_path(post) %></td>
+            <td><%= t "post.posted" %> <%= time_ago_in_words post.created_at %> <%= t "post.ago" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <p class="h4">Latest Users</p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th width="70%">Name</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.created_at.strftime("%d %b %Y") %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

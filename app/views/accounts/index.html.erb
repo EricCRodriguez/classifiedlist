@@ -1,0 +1,22 @@
+<p class="h4"><%= t("users.plural") %></p>
+
+<table class="table mt-4">
+  <thead>
+    <tr>
+      <th width="50%"><%= t("form.label.email") %></th>
+      <th width="25%"><%= t("form.label.date") %></th>
+      <th><%= t("form.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.created_at.strftime("%d %b %Y") %></td>
+        <td>
+          <%= link_to t("form.destroy"), destroy_account_path(user.id), method: :delete, data: { confirm: t("form.confirm") } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

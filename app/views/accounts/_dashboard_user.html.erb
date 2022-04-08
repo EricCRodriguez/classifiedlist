@@ -1,0 +1,12 @@
+<div class="mt-4">
+<% if @posts.size > 0 %>
+  <% @posts.each do |post| %>
+    <div class="category-post">
+      <span class="post-title"><%= link_to post.title, edit_post_path(post) %></span>
+      <span class="post-date">- <%= t "post.posted" %> <%= time_ago_in_words post.created_at %> <%= t "post.ago" %></span>
+    </div>
+  <% end %>
+<% else %>
+  <p><%= t("post.no_posts") %></p>
+<% end %>
+</div>

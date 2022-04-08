@@ -1,0 +1,59 @@
+<div class="row pt-4 pb-3">
+  <div class="col-12 col-lg-6 mb-4">
+    <%= link_to t("nav.home"), root_path %> &raquo;
+
+    <% if @post.present? && !@post.new_record?
+      category = @post.category
+      parent = category.parent if category.present?
+    %>
+    <% if parent.present? %>
+      <%= link_to category_name(parent), show_category_path(parent.url) %> &raquo;
+    <% end %>
+
+      <%= link_to category_name(category), show_category_path(category.url) %> &raquo;
+      <%= @post.title %>
+    <% elsif @category.present?
+      parent = @category.parent
+    %>
+      <% if parent.present? %>
+        <%= link_to category_name(parent), show_category_path(parent.url) %> &raquo;
+      <% end %>
+
+      <%= category_name(@category) %>
+    <% end %>
+  </div>
+
+  <div class="col-12 col-lg-6">
+    <div class="d-none d-lg-block top-right-nav float-right">
+      <% if account_signed_in? %>
+        <%= link_to t("nav.dashboard"), dashboard_path, class: "text-dark d-inline-block mt-2 ml-3" if account_signed_in? && !current_account.is_admin? %>
+        <%= link_to t("nav.logout"), destroy_account_session_path, method: :delete, class: "text-dark d-inline-block mt-2 ml-3" %>
+      <% else %>
+        <%= link_to t("nav.login"), new_account_session_path, class: "text-dark d-inline-block mt-2 ml-3" %>
+        <%= link_to t("nav.register"), new_account_registration_path, class: "text-dark d-inline-block mt-2 ml-3" %>
+      <% end %>
+    </div>
+
+    <% if I18n.available_locales.size > 1 %>
+    <div class="float-right">
+      <select class="form-control" name="language-select" id="language-select">
+        <optgroup label="Site Language">
+          <% I18n.available_locales.each do |lang| %>
+           <option value="<%= lang.to_s %>" <%= "selected=selected" if I18n.locale == lang %>><%= t("languages."+lang.to_s) %></option>
+         <% end %>
+        </optgroup>
+      </select>
+    </div>
+    <% end %>
+
+    <div class="float-left">
+      <% if is_auth? %>
+        <p class="mt-2 d-block d-lg-none">Log in or sign up</p>
+      <% elsif !(account_signed_in? && current_account.is_admin?) %>
+        <p><%= link_to "#{t('form.new')} #{t('post.singular')}", new_post_path, class: "btn btn-success d-block d-lg-none mr-3" %></p>
+      <% elsif account_signed_in? %>
+        <p class="mt-2 d-block d-lg-none"><%= account_username(current_account) %>.</p>
+      <% end %>
+    </div>
+  </div>
+</div>

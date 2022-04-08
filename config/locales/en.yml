@@ -1,0 +1,82 @@
+# Files in the config/locales directory are used for internationalization
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+en:
+  languages:
+    en: "English"
+    so: "Somali"
+    pt: "Portuguese"
+  nav:
+    home: "Home"
+    dashboard: "Dashboard"
+    login: "Log In"
+    logout: "Sign Out"
+    register: "Register"
+    sidebar_pages:
+      help: "help, faqs, abuse, legal"
+      scams: "avoid scams and fraud"
+      safety: "personal safety tips"
+      terms: "terms of use"
+  form:
+    new: "New"
+    edit: "Edit"
+    destroy: "Destroy"
+    save: "Save Details"
+    created: "was successfully created"
+    updated: "was successfully updated"
+    destroyed: "was successfully destroyed"
+    failed: "Unable to complete this action"
+    confirm: "Are you sure you want to delete?"
+    label:
+      title: "Title"
+      name: "Name"
+      email: "Email"
+      date: "Date"
+      content: "Content"
+      category: "Category"
+      parent_category: "Parent Category"
+      no_parent_category: "No Parent Category"
+      location: "Location"
+      images: "Images"
+      actions: "Actions"
+  post:
+    singular: "Post"
+    plural: "Posts"
+    image_label: "Attach an image"
+    email_label: "Email"
+    message_label: "Message"
+    no_posts: "No posts to display."
+    send_message: "Send message to user"
+    send_message_confirm: "Send Message"
+    send_message_success: "Message sent successfully"
+    send_message_fail: "Unable to send message"
+    print_button: "Print"
+    posted: "Posted"
+    ago: "ago"
+  page:
+    singular: "Page"
+    plural: "Pages"
+  category:
+    singular: "Category"
+    plural: "Categories"
+  dashboard:
+    title: "Dashboard"
+    headline: "My Posts:"
+  accounts:
+    login_title: "Log In"
+    register_title: "Sign Up"
+    forgot_password: "Forgot password?"
+    confirmation_instructions: "Didn't receive confirmation instructions?"
+    minimum_password_length: "characters minimum"
+    email_label: "Email"
+    password_label: "Password"
+    password_confirmation_label: "Password"
+    remember_me_label: "Remember me"
+    login_button: "Log in"
+    register_button: "Sign up"
+    submit: "Submit"
+    permission_denied: "You do not have access to view this page"
+  users:
+    singular: "User"
+    plural: "Users"

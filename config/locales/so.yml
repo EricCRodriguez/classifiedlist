@@ -1,0 +1,245 @@
+so:
+  languages:
+    en: "English"
+    so: "Somali"
+  nav:
+    home: "Boga Kowaad"
+    dashboard: "Qaybta aad leedahay"
+    login: "Gal"
+    logout: "Ka Bax"
+    register: "furo/samayso"
+    sidebar_pages:
+      help: "caawin, su’aalo, khaladaad, sharci"
+      scams: "is ilaali, sharcigana ilaali"
+      safety: "amaanka"
+      terms: "shuruudaha"
+  form:
+    new: "cusub"
+    edit: "badal"
+    destroy: "tirtir/Masax"
+    save: "Xafid/hayso"
+    created: "Samayso"
+    updated: " Cusboone/habee"
+    destroyed: "tirtiray/masaxay"
+    failed: "waa qalad"
+    confirm: "Hubso?"
+    label:
+      title: "Ciwaanka"
+      name: "Magaca"
+      email: "Email"
+      date: "Taariikhda"
+      content: "tusmo"
+      category: "Qaybta"
+      parent_category: "Qaybta Guud"
+      no_parent_category: "maleh qayb guud"
+      location: "Goobta/Meesha"
+      images: "Sawirada"
+      actions: "Ficilada/hawlaha"
+  post:
+    singular: "kali"
+    plural: "kuwa badan"
+    image_label: "Masawir"
+    email_label: "Email"
+    message_label: "Fariinta/akhbaarta"
+    no_posts: "kumajiro."
+    send_message: "Dir Fariinta"
+    send_message_confirm: "Ma rabta inaa dirtid fariintaan"
+    send_message_success: "Waa dirtay Fariintaada"
+    send_message_fail: "Ma dirmin fariintaada"
+    print_button: "Dabaaco"
+    posted: "Gashay"
+    ago: "hore"
+  page:
+    singular: "Bogga"
+    plural: "Dhawr Bog"
+  category:
+    singular: "Qayb"
+    plural: "Qaybaha"
+  dashboard:
+    title: "Ciwaanka "
+    headline: "Hordhaca:"
+  accounts:
+    login_title: "Gali Magacaaga"
+    register_title: "Furo akoon"
+    forgot_password: "Hilmaamtay PIN lambarkaaga?"
+    confirmation_instructions: "Xaqiijintaada?"
+    minimum_password_length: " Ka dhigo PIN Lamberkaaga ugu yaraan 4"
+    email_label: "Fariinta"
+    password_label: "PIN/lambarkaaga"
+    password_confirmation_label: "Kuceli PIN/lambarkaaga"
+    remember_me_label: "PIN Lambarka xafid"
+    login_button: "Gal"
+    register_button: "Samayso"
+    submit: "Dir/Udir"
+    permission_denied: "Mahaysatid fasax inaa aragtid bogaan"
+  users:
+    singular: "Qofka leh"
+    plural: "Dadka leh"
+  activerecord:
+    errors:
+      template:
+        body: There were problems with the following fields
+        header:
+          one: 1 error prohibited this {{model}} from being saved
+          other: "{{count}} errors prohibited this {{model}} from being saved"
+        messages:
+          inclusion: " Raaci"
+          exclusion: " Kareeb"
+          invalid: " Mashaqaynayo"
+          confirmation: " Iska hubso"
+          accepted: " Waa shaqeeyay"
+          empty: " Maran"
+          blank: "Banaan"
+          too_long: "aad ayuu udheer yahay({{count}})  "
+          too_short: "aad ayuu u gaaban yahay({{count}})  "
+          wrong_length: " dherarka ayaa qaldan (waa inay noqdaan {{count}}) "
+          taken: " Waa Okay"
+          not_a_number: "Lambar hakadhigin"
+          greater_than: "Ka dhig calmaada <   {>{count}} "
+          greater_than_or_equal_to: " kawayn ama lamid ah Calaamada > ama=  {{count}}"
+          equal_to: " lamida ama  =  {{100}} "
+          less_than: "Kayar ama < {{count}} "
+          less_than_or_equal_to: "Kayar ama Lamida > ama = {{count}}"
+          odd: " Kinsi"
+          even: "Dhaban"
+  date:
+    abbr_day_names:
+    - axd
+    - isn
+    - tal
+    - arb
+    - kham
+    - jimce
+    - sabti
+    abbr_month_names:
+    -
+    - jan
+    - feb
+    - maar
+    - abril
+    - may
+    - juun
+    - julay
+    - agosto
+    - seb
+    - okt
+    - naf
+    - dis
+    day_names:
+    - axad
+    - isniin
+    - talaado
+    - arbaco
+    - khamiis
+    - jimce
+    - sabti
+    formats:
+      default: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+      short: "%d de %B"
+    month_names:
+    -
+    - janaayo
+    - febraayo
+    - maarso
+    - abriil
+    - may
+    - juun
+    - julaay
+    - agoosto
+    - sebtember
+    - oktoobar
+    - nofeembar
+    - diseembar
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: approximately 1 hour
+        other: approximately %{count} hours
+      about_x_months:
+        one: approximately 1 month
+        other: approximately %{count} months
+      about_x_years:
+        one: approximately 1 year
+        other: approximately %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      less_than_x_minutes:
+        one: less than 1 minute
+        other: less than %{count} minutes
+      over_x_years:
+        one: more than 1 year
+        other: more than %{count} years
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_years:
+        one: 1 year
+        other: "%{count} years"
+    prompts:
+      second: Second
+      minute: Minute
+      hour: Hour
+      day: Day
+      month: Month
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: 'A validação falhou: %{errors}'
+      not_a_number: is not a number
+      not_an_integer: is not an integer
+      odd: must be odd
+      other_than: must be different than %{count}
+      present: must be present
+      required: is required
+      taken: is already taken
+      too_long:
+        one: 'is too long (maximum: 1 character)'
+        other: 'is too long (maximum: %{count} characters)'
+      too_short:
+        one: 'is too short (minimum: 1 character)'
+        other: 'is too short (minimum: %{count} characters)'
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: '1 error prohibited this %{model} from being saved'
+        other: '%{count} errors prohibited this %{model} from being saved'
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
